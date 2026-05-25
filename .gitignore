@@ -1,0 +1,15 @@
+node_modules
+dist
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dev-server.*.log
+data/main-excel/*.xls
+data/main-excel/*.xlsx
+data/main-excel/~$*
+.DS_Store
+Thumbs.db
