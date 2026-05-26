@@ -1,5 +1,5 @@
 {
-  "sourceWorkbook": "Sample Dashboard.xlsx",
+  "sourceWorkbook": "Totals: Sample Dashboard.xlsx; Payments & Balances: Sample Dataset 2.xlsx",
   "sheets": {
     "totals": {
       "sheetName": "Totals",
@@ -8524,7 +8524,8 @@
           "yearLevel": "G11",
           "code": "G11_01_25-26",
           "name": "Catalo, Zion David S.",
-          "scheme": "M"
+          "scheme": "M",
+          "amountPaid": 0
         },
         {
           "yearLevel": "G11",
@@ -8533,7 +8534,7 @@
           "scheme": "A",
           "date": "2026-09-06",
           "particulars": "T",
-          "amountPaid": 46200
+          "amountPaid": 5391.549296509217
         },
         {
           "yearLevel": "G11",
@@ -8542,7 +8543,7 @@
           "scheme": "A",
           "date": "2026-09-06",
           "particulars": "M",
-          "amountPaid": 12000
+          "amountPaid": 1833.7705629789587
         },
         {
           "yearLevel": "G11",
@@ -8551,7 +8552,7 @@
           "scheme": "A",
           "date": "12/15/2025",
           "particulars": "B",
-          "amountPaid": 7200
+          "amountPaid": 1218.6135340769783
         },
         {
           "yearLevel": "G11",
@@ -8560,7 +8561,7 @@
           "scheme": "M",
           "date": "07/14/2025",
           "particulars": "M",
-          "amountPaid": 1200
+          "amountPaid": 290.6330481800937
         },
         {
           "yearLevel": "G11",
@@ -8569,7 +8570,7 @@
           "scheme": "M",
           "date": "07/14/2025",
           "particulars": "B",
-          "amountPaid": 1300
+          "amountPaid": 309.85226976850254
         },
         {
           "yearLevel": "G11",
@@ -8578,7 +8579,7 @@
           "scheme": "M",
           "date": "08/19/2025",
           "particulars": "M",
-          "amountPaid": 1500
+          "amountPaid": 347.43455268578856
         },
         {
           "yearLevel": "G11",
@@ -8587,7 +8588,7 @@
           "scheme": "M",
           "date": "08/19/2025",
           "particulars": "M",
-          "amountPaid": 4000
+          "amountPaid": 761.4615754863516
         },
         {
           "yearLevel": "G11",
@@ -8596,7 +8597,7 @@
           "scheme": "M",
           "date": "09/29/2025",
           "particulars": "M",
-          "amountPaid": 1500
+          "amountPaid": 347.43455268578856
         },
         {
           "yearLevel": "G11",
@@ -8605,7 +8606,7 @@
           "scheme": "M",
           "date": "2025-06-11",
           "particulars": "M",
-          "amountPaid": 750
+          "amountPaid": 199.548749569648
         },
         {
           "yearLevel": "G11",
@@ -8614,7 +8615,7 @@
           "scheme": "M",
           "date": "2025-06-11",
           "particulars": "B",
-          "amountPaid": 750
+          "amountPaid": 199.548749569648
         },
         {
           "yearLevel": "G11",
@@ -8623,7 +8624,7 @@
           "scheme": "M",
           "date": "2026-05-01",
           "particulars": "M",
-          "amountPaid": 1000
+          "amountPaid": 251.18864315095806
         },
         {
           "yearLevel": "G11",
@@ -8632,7 +8633,7 @@
           "scheme": "M",
           "date": "2026-05-01",
           "particulars": "B",
-          "amountPaid": 1000
+          "amountPaid": 251.18864315095806
         },
         {
           "yearLevel": "G12",
@@ -8641,7 +8642,7 @@
           "scheme": "A",
           "date": "05/20/2025",
           "particulars": "T",
-          "amountPaid": 46200
+          "amountPaid": 5391.549296509217
         },
         {
           "yearLevel": "G12",
@@ -8650,7 +8651,7 @@
           "scheme": "A",
           "date": "05/20/2025",
           "particulars": "B",
-          "amountPaid": 8220
+          "amountPaid": 1354.8694616945625
         },
         {
           "yearLevel": "G12",
@@ -8659,7 +8660,7 @@
           "scheme": "A",
           "date": "05/20/2025",
           "particulars": "M",
-          "amountPaid": 12000
+          "amountPaid": 1833.7705629789587
         },
         {
           "yearLevel": "G12",
@@ -8668,7 +8669,7 @@
           "scheme": "Q",
           "date": "2025-07-06",
           "particulars": "T",
-          "amountPaid": 15501
+          "amountPaid": 2250.5453724080962
         },
         {
           "yearLevel": "G12",
@@ -8677,7 +8678,7 @@
           "scheme": "Q",
           "date": "2025-07-06",
           "particulars": "M",
-          "amountPaid": 6818
+          "amountPaid": 1166.609738629325
         },
         {
           "yearLevel": "G12",
@@ -8686,7 +8687,7 @@
           "scheme": "Q",
           "date": "2026-07-04",
           "particulars": "T",
-          "amountPaid": 13230
+          "amountPaid": 1982.6583132640235
         },
         {
           "yearLevel": "G12",
@@ -8695,7 +8696,7 @@
           "scheme": "Q",
           "date": "2026-11-05",
           "particulars": "T",
-          "amountPaid": 15000
+          "amountPaid": 2192.1638274328884
         },
         {
           "yearLevel": "G12",
@@ -8704,7 +8705,7 @@
           "scheme": "Q",
           "date": "05/30/2025",
           "particulars": "T",
-          "amountPaid": 15501
+          "amountPaid": 2250.5453724080962
         },
         {
           "yearLevel": "G12",
@@ -8713,7 +8714,7 @@
           "scheme": "Q",
           "date": "05/30/2025",
           "particulars": "M",
-          "amountPaid": 12000
+          "amountPaid": 1833.7705629789587
         },
         {
           "yearLevel": "G12",
@@ -8722,7 +8723,7 @@
           "scheme": "Q",
           "date": "2025-01-08",
           "particulars": "B",
-          "amountPaid": 5000
+          "amountPaid": 910.2821015130413
         },
         {
           "yearLevel": "G12",
@@ -8731,7 +8732,7 @@
           "scheme": "Q",
           "date": "08/14/2025",
           "particulars": "T",
-          "amountPaid": 3300
+          "amountPaid": 652.8466078717715
         },
         {
           "yearLevel": "G12",
@@ -8740,7 +8741,7 @@
           "scheme": "Q",
           "date": "10/13/2025",
           "particulars": "T",
-          "amountPaid": 5515
+          "amountPaid": 984.5469098557584
         },
         {
           "yearLevel": "G12",
@@ -8749,7 +8750,7 @@
           "scheme": "Q",
           "date": "2026-12-01",
           "particulars": "T",
-          "amountPaid": 1134.5
+          "amountPaid": 277.8712406799963
         },
         {
           "yearLevel": "G12",
@@ -8758,7 +8759,7 @@
           "scheme": "Q",
           "date": "2026-12-01",
           "particulars": "M",
-          "amountPaid": 2215
+          "amountPaid": 474.5685834603952
         },
         {
           "yearLevel": "G12",
@@ -8767,7 +8768,7 @@
           "scheme": "S",
           "date": "05/30/2025",
           "particulars": "T",
-          "amountPaid": 28251
+          "amountPaid": 3637.7015080322053
         },
         {
           "yearLevel": "G12",
@@ -8776,7 +8777,7 @@
           "scheme": "S",
           "date": "05/30/2025",
           "particulars": "M",
-          "amountPaid": 12000
+          "amountPaid": 1833.7705629789587
         },
         {
           "yearLevel": "G12",
@@ -8785,7 +8786,7 @@
           "scheme": "S",
           "date": "2025-09-12",
           "particulars": "T",
-          "amountPaid": 22650
+          "amountPaid": 3048.277953460304
         },
         {
           "yearLevel": "G12",
@@ -8794,7 +8795,7 @@
           "scheme": "S",
           "date": "2025-09-12",
           "particulars": "B",
-          "amountPaid": 7215
+          "amountPaid": 1220.6441338562784
         },
         {
           "yearLevel": "G12",
@@ -8803,7 +8804,7 @@
           "scheme": "A",
           "date": "2025-07-06",
           "particulars": "T",
-          "amountPaid": 8200
+          "amountPaid": 1352.2316039137534
         },
         {
           "yearLevel": "G12",
@@ -8812,7 +8813,7 @@
           "scheme": "A",
           "date": "2025-07-06",
           "particulars": "T",
-          "amountPaid": 38000
+          "amountPaid": 4611.337162929194
         },
         {
           "yearLevel": "G12",
@@ -8821,7 +8822,7 @@
           "scheme": "A",
           "date": "2025-07-06",
           "particulars": "B",
-          "amountPaid": 8220
+          "amountPaid": 1354.8694616945625
         },
         {
           "yearLevel": "G12",
@@ -8830,7 +8831,7 @@
           "scheme": "A",
           "date": "2025-07-06",
           "particulars": "M",
-          "amountPaid": 12000
+          "amountPaid": 1833.7705629789587
         },
         {
           "yearLevel": "G12",
@@ -8839,7 +8840,7 @@
           "scheme": "A",
           "date": "05/15/2025",
           "particulars": "T",
-          "amountPaid": 31200
+          "amountPaid": 3938.434936102629
         },
         {
           "yearLevel": "G12",
@@ -8848,7 +8849,7 @@
           "scheme": "A",
           "date": "05/15/2025",
           "particulars": "T",
-          "amountPaid": 15000
+          "amountPaid": 2192.1638274328884
         },
         {
           "yearLevel": "G12",
@@ -8857,7 +8858,7 @@
           "scheme": "A",
           "date": "05/15/2025",
           "particulars": "B",
-          "amountPaid": 3000
+          "amountPaid": 604.9186910982999
         },
         {
           "yearLevel": "G12",
@@ -8866,7 +8867,7 @@
           "scheme": "A",
           "date": "05/15/2025",
           "particulars": "M",
-          "amountPaid": 12000
+          "amountPaid": 1833.7705629789587
         },
         {
           "yearLevel": "G12",
@@ -8875,7 +8876,7 @@
           "scheme": "A",
           "date": "09/25/2025",
           "particulars": "B",
-          "amountPaid": 4115
+          "amountPaid": 778.9254101288161
         },
         {
           "yearLevel": "G12",
@@ -8884,7 +8885,7 @@
           "scheme": "A",
           "date": "03/26/2025",
           "particulars": "T",
-          "amountPaid": 5000
+          "amountPaid": 910.2821015130413
         },
         {
           "yearLevel": "G12",
@@ -8893,7 +8894,7 @@
           "scheme": "A",
           "date": "06/20/2025",
           "particulars": "T",
-          "amountPaid": 41200
+          "amountPaid": 4919.46384163213
         },
         {
           "yearLevel": "G12",
@@ -8902,7 +8903,7 @@
           "scheme": "A",
           "date": "06/20/2025",
           "particulars": "B",
-          "amountPaid": 7215
+          "amountPaid": 1220.6441338562784
         },
         {
           "yearLevel": "G12",
@@ -8911,13 +8912,14 @@
           "scheme": "A",
           "date": "06/20/2025",
           "particulars": "M",
-          "amountPaid": 12000
+          "amountPaid": 1833.7705629789587
         },
         {
           "yearLevel": "G12",
           "code": "G12_08_25-26",
           "name": "Reyes, Altea",
-          "scheme": "Q"
+          "scheme": "Q",
+          "amountPaid": 0
         },
         {
           "yearLevel": "G12",
@@ -8926,7 +8928,7 @@
           "scheme": "S",
           "date": "05/26/2025",
           "particulars": "M",
-          "amountPaid": 12000
+          "amountPaid": 1833.7705629789587
         },
         {
           "yearLevel": "G12",
@@ -8935,7 +8937,7 @@
           "scheme": "S",
           "date": "2025-06-08",
           "particulars": "T",
-          "amountPaid": 29256
+          "amountPaid": 3740.8643295406273
         },
         {
           "yearLevel": "G12",
@@ -8944,7 +8946,7 @@
           "scheme": "S",
           "date": "2025-09-09",
           "particulars": "B",
-          "amountPaid": 7215
+          "amountPaid": 1220.6441338562784
         },
         {
           "yearLevel": "G12",
@@ -8953,7 +8955,7 @@
           "scheme": "S",
           "date": "2025-09-09",
           "particulars": "T",
-          "amountPaid": 21645
+          "amountPaid": 2939.585335095761
         },
         {
           "yearLevel": "G12",
@@ -8962,7 +8964,7 @@
           "scheme": "Q",
           "date": "2025-07-06",
           "particulars": "T",
-          "amountPaid": 11800
+          "amountPaid": 1809.2792641620554
         },
         {
           "yearLevel": "G12",
@@ -8971,7 +8973,7 @@
           "scheme": "Q",
           "date": "08/29/2025",
           "particulars": "T",
-          "amountPaid": 11800
+          "amountPaid": 1809.2792641620554
         },
         {
           "yearLevel": "G12",
@@ -8980,7 +8982,7 @@
           "scheme": "Q",
           "date": "08/29/2025",
           "particulars": "B",
-          "amountPaid": 7115
+          "amountPaid": 1207.0907545089601
         },
         {
           "yearLevel": "G12",
@@ -8989,7 +8991,7 @@
           "scheme": "Q",
           "date": "2025-12-11",
           "particulars": "T",
-          "amountPaid": 11800
+          "amountPaid": 1809.2792641620554
         },
         {
           "yearLevel": "G12",
@@ -8998,7 +9000,7 @@
           "scheme": "Q",
           "date": "01/20/2026",
           "particulars": "M",
-          "amountPaid": 12000
+          "amountPaid": 1833.7705629789587
         },
         {
           "yearLevel": "G12",
@@ -9007,7 +9009,7 @@
           "scheme": "Q",
           "date": "01/20/2026",
           "particulars": "T",
-          "amountPaid": 10410.9
+          "amountPaid": 1636.7811693223111
         },
         {
           "yearLevel": "G12",
@@ -9016,7 +9018,7 @@
           "scheme": "Q",
           "date": "01/20/2026",
           "particulars": "B",
-          "amountPaid": 100
+          "amountPaid": 39.810717055349755
         },
         {
           "yearLevel": "G12",
@@ -9025,7 +9027,7 @@
           "scheme": "Q",
           "date": "07/14/2025",
           "particulars": "T",
-          "amountPaid": 2545
+          "amountPaid": 530.3349262014494
         },
         {
           "yearLevel": "G12",
@@ -9034,7 +9036,7 @@
           "scheme": "Q",
           "date": "07/14/2025",
           "particulars": "B",
-          "amountPaid": 2055
+          "amountPaid": 446.9402431926469
         },
         {
           "yearLevel": "G12",
@@ -9043,7 +9045,7 @@
           "scheme": "Q",
           "date": "07/14/2025",
           "particulars": "M",
-          "amountPaid": 3000
+          "amountPaid": 604.9186910982999
         },
         {
           "yearLevel": "G12",
@@ -9052,7 +9054,7 @@
           "scheme": "Q",
           "date": "08/19/2025",
           "particulars": "T",
-          "amountPaid": 2546
+          "amountPaid": 530.5016261122298
         },
         {
           "yearLevel": "G12",
@@ -9061,7 +9063,7 @@
           "scheme": "Q",
           "date": "08/19/2025",
           "particulars": "M",
-          "amountPaid": 3000
+          "amountPaid": 604.9186910982999
         },
         {
           "yearLevel": "G12",
@@ -9070,7 +9072,7 @@
           "scheme": "Q",
           "date": "08/19/2025",
           "particulars": "B",
-          "amountPaid": 2055
+          "amountPaid": 446.9402431926469
         },
         {
           "yearLevel": "G12",
@@ -9079,7 +9081,7 @@
           "scheme": "Q",
           "date": "2025-06-11",
           "particulars": "T",
-          "amountPaid": 2545
+          "amountPaid": 530.3349262014494
         },
         {
           "yearLevel": "G12",
@@ -9088,7 +9090,7 @@
           "scheme": "Q",
           "date": "2025-06-11",
           "particulars": "B",
-          "amountPaid": 2055
+          "amountPaid": 446.9402431926469
         },
         {
           "yearLevel": "G12",
@@ -9097,7 +9099,7 @@
           "scheme": "Q",
           "date": "2025-06-11",
           "particulars": "M",
-          "amountPaid": 3000
+          "amountPaid": 604.9186910982999
         },
         {
           "yearLevel": "G12",
@@ -9106,7 +9108,7 @@
           "scheme": "Q",
           "date": "01/16/2026",
           "particulars": "T",
-          "amountPaid": 1200
+          "amountPaid": 290.6330481800937
         },
         {
           "yearLevel": "G12",
@@ -9115,7 +9117,7 @@
           "scheme": "Q",
           "date": "02/19/2026",
           "particulars": "T",
-          "amountPaid": 1344.15
+          "amountPaid": 318.2425085344618
         },
         {
           "yearLevel": "G12",
@@ -9124,7 +9126,7 @@
           "scheme": "Q",
           "date": "02/19/2026",
           "particulars": "B",
-          "amountPaid": 1050
+          "amountPaid": 261.1869291265323
         },
         {
           "yearLevel": "G12",
@@ -9133,7 +9135,7 @@
           "scheme": "Q",
           "date": "02/19/2026",
           "particulars": "M",
-          "amountPaid": 3000
+          "amountPaid": 604.9186910982999
         }
       ]
     }

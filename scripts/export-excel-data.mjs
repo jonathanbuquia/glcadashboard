@@ -6,11 +6,18 @@ import process from 'node:process';
 const require = createRequire(import.meta.url);
 const XLSX = require('xlsx');
 
-const workbookPath = path.join('data', 'main-excel', 'Sample Dashboard.xlsx');
+const totalsWorkbookPath = path.join('data', 'main-excel', 'Sample Dashboard.xlsx');
+const paymentsAndBalancesWorkbookPath = path.join('data', 'main-excel', 'Sample Dataset 2.xlsx');
 const outputPath = path.join('src', 'data', 'paymentData.json');
 const sheets = {
-  totals: 'Totals',
-  paymentsAndBalances: 'Payments & Balances',
+  totals: {
+    sheetName: 'Totals',
+    workbookPath: totalsWorkbookPath,
+  },
+  paymentsAndBalances: {
+    sheetName: 'Payments & Balances',
+    workbookPath: paymentsAndBalancesWorkbookPath,
+  },
 };
 
 function toCamelCase(value) {
@@ -104,20 +111,34 @@ function sheetToRows(sheetKey, sheetName, sheet) {
   };
 }
 
-if (!fs.existsSync(workbookPath)) {
-  console.error(`Workbook not found: ${workbookPath}`);
-  process.exit(1);
+for (const { workbookPath } of Object.values(sheets)) {
+  if (!fs.existsSync(workbookPath)) {
+    console.error(`Workbook not found: ${workbookPath}`);
+    process.exit(1);
+  }
 }
 
-const workbook = XLSX.readFile(workbookPath, { cellDates: true });
+const workbookCache = new Map();
+
+function getWorkbook(workbookPath) {
+  if (!workbookCache.has(workbookPath)) {
+    workbookCache.set(workbookPath, XLSX.readFile(workbookPath, { cellDates: true }));
+  }
+
+  return workbookCache.get(workbookPath);
+}
+
 const data = {
-  sourceWorkbook: path.basename(workbookPath),
+  sourceWorkbook: `Totals: ${path.basename(totalsWorkbookPath)}; Payments & Balances: ${path.basename(
+    paymentsAndBalancesWorkbookPath,
+  )}`,
   sheets: Object.fromEntries(
-    Object.entries(sheets).map(([key, sheetName]) => {
+    Object.entries(sheets).map(([key, { sheetName, workbookPath }]) => {
+      const workbook = getWorkbook(workbookPath);
       const sheet = workbook.Sheets[sheetName];
 
       if (!sheet) {
-        throw new Error(`Sheet not found: ${sheetName}`);
+        throw new Error(`Sheet not found: ${sheetName} in ${workbookPath}`);
       }
 
       return [key, sheetToRows(key, sheetName, sheet)];

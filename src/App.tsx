@@ -10,7 +10,6 @@ import {
   LayoutDashboard,
   PiggyBank,
   ReceiptText,
-  SearchCheck,
   UserRoundCheck,
   Users,
   WalletCards,
@@ -177,12 +176,12 @@ function App() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-100 text-slate-900">
+    <main className="dashboard-bg min-h-screen text-slate-900">
       <div className="mx-auto flex max-w-[1600px] flex-col lg:flex-row">
-        <aside className="border-b border-slate-200 bg-white text-slate-950 lg:sticky lg:top-0 lg:h-screen lg:w-80 lg:shrink-0 lg:border-b-0 lg:border-r lg:border-slate-800 lg:bg-slate-950 lg:text-white">
-          <div className="flex h-full flex-col gap-6 p-5">
+        <aside className="border-b border-slate-200 bg-white/95 text-slate-950 shadow-xl shadow-slate-200/60 backdrop-blur lg:sticky lg:top-0 lg:h-screen lg:w-80 lg:shrink-0 lg:border-b-0 lg:border-r lg:border-slate-800 lg:bg-slate-950 lg:text-white lg:shadow-none">
+          <div className="flex h-full flex-col gap-6 p-5 lg:bg-[linear-gradient(180deg,#020617_0%,#0f172a_48%,#111827_100%)]">
             <div>
-              <h1 className="text-2xl font-bold tracking-normal">
+              <h1 className="text-2xl font-black tracking-normal">
                 GLCA Dashboard
               </h1>
             </div>
@@ -193,20 +192,23 @@ function App() {
 
                 return (
                   <button
-                    className={`group flex min-w-40 items-center gap-3 rounded-md px-3 py-3 text-left transition lg:min-w-0 ${
+                    className={`group relative flex min-w-40 items-center gap-3 overflow-hidden rounded-xl px-3 py-3 text-left transition duration-200 lg:min-w-0 ${
                       activeSection === section.id
-                        ? 'bg-slate-950 text-white shadow-sm lg:bg-white lg:text-slate-950'
-                        : 'text-slate-700 hover:bg-slate-100 lg:text-slate-300 lg:hover:bg-slate-900 lg:hover:text-white'
+                        ? 'bg-slate-950 text-white shadow-lg shadow-slate-300/60 lg:bg-white lg:text-slate-950 lg:shadow-black/20'
+                        : 'text-slate-700 hover:bg-slate-100 lg:text-slate-300 lg:hover:bg-white/10 lg:hover:text-white'
                     }`}
                     type="button"
                     key={section.id}
                     onClick={() => setActiveSection(section.id)}
                   >
+                    {activeSection === section.id ? (
+                      <span className="absolute inset-y-2 left-0 w-1 rounded-r-full bg-teal-400" />
+                    ) : null}
                     <span
-                      className={`grid h-9 w-9 shrink-0 place-items-center rounded-md ${
+                      className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg shadow-sm ${
                         activeSection === section.id
-                          ? 'bg-teal-600 text-white'
-                          : 'bg-slate-100 text-teal-700 group-hover:bg-slate-200 lg:bg-slate-800 lg:text-teal-200 lg:group-hover:bg-slate-700'
+                          ? 'bg-gradient-to-br from-teal-500 to-sky-500 text-white'
+                          : 'bg-slate-100 text-teal-700 group-hover:bg-slate-200 lg:bg-white/10 lg:text-teal-200 lg:group-hover:bg-white/15'
                       }`}
                       aria-hidden="true"
                     >
@@ -221,16 +223,16 @@ function App() {
         </aside>
 
         <section className="min-w-0 flex-1">
-          <header className="border-b border-slate-200 bg-white px-4 py-5 lg:px-8">
+          <header className="sticky top-0 z-20 border-b border-white/70 bg-white/80 px-4 py-5 shadow-sm shadow-slate-200/60 backdrop-blur-xl lg:px-8">
             <div className="flex flex-col gap-3 xl:flex-row xl:items-end xl:justify-between">
               <div>
                 {activeSection === 'revenue' || activeSection === 'students' ? (
-                  <p className="text-2xl font-bold tracking-normal text-slate-950 md:text-3xl">
+                  <p className="text-2xl font-black tracking-normal text-slate-950 md:text-3xl">
                     {getSectionHeading(activeSection)}
                   </p>
                 ) : (
                   <>
-                    <p className="text-2xl font-bold tracking-normal text-slate-950 md:text-3xl">
+                    <p className="text-2xl font-black tracking-normal text-slate-950 md:text-3xl">
                       {sections.find((section) => section.id === activeSection)?.label}
                     </p>
                     {activeSection !== 'overview' && activeSection !== 'collections' ? (
@@ -260,7 +262,7 @@ function App() {
             </div>
           </header>
 
-          <div className="flex flex-col gap-6 px-4 py-6 lg:px-8">
+          <div className="flex flex-col gap-7 px-4 py-7 lg:px-8">
             {activeSection !== 'overview' ? (
               <>
                 <FilterPanel
@@ -325,8 +327,8 @@ interface MiniStatProps {
 function MiniStat({ label, value, dark = false }: MiniStatProps) {
   return (
     <div
-      className={`rounded-lg border px-3 py-2 ${
-        dark ? 'border-slate-800 bg-slate-900' : 'border-slate-200 bg-slate-50'
+      className={`rounded-xl border px-3 py-2 shadow-sm ${
+        dark ? 'border-slate-800 bg-slate-900' : 'border-slate-200 bg-white/80'
       }`}
     >
       <p
@@ -410,7 +412,7 @@ function ParticularsTab({ metrics, students, selectedScheme }: ParticularsTabPro
           icon={Banknote}
         />
         <KPICard
-          label="Still Collectible"
+          label="Remaining Collectible"
           value={formatCurrency(metrics.totalRemainingBalance)}
           detail="Open balance to collect"
           tone="warning"
@@ -455,7 +457,8 @@ function YearLevelRevenueSummary({ rows, schemeLabel }: YearLevelRevenueSummaryP
   );
 
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+    <section className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white/95 p-5 shadow-xl shadow-slate-200/70">
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-400 via-violet-500 to-emerald-500" />
       <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
         <div>
           <h3 className="text-lg font-bold text-slate-950">
@@ -484,7 +487,7 @@ function YearLevelRevenueSummary({ rows, schemeLabel }: YearLevelRevenueSummaryP
             totalClassName="bg-yellow-200"
           />
           <RevenueLedgerBlock
-            title="Total Remaining"
+            title="Remaining"
             rows={rows}
             valueKey="remaining"
             total={totals.remaining}
@@ -519,14 +522,14 @@ function RevenueLedgerBlock({
   totalClassName,
 }: RevenueLedgerBlockProps) {
   return (
-    <div className="overflow-hidden rounded-md border border-slate-300 bg-white">
+    <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="border-b border-slate-300 bg-slate-50">
-            <th className="px-3 py-2 text-left text-base font-bold text-slate-950">
+          <tr className="border-b border-slate-200 bg-slate-950">
+            <th className="px-3 py-2 text-left text-base font-bold text-white">
               {title}
             </th>
-            <th className="px-3 py-2 text-right text-base font-bold text-slate-950">
+            <th className="px-3 py-2 text-right text-base font-bold text-white">
               Amount
             </th>
           </tr>
@@ -674,18 +677,18 @@ interface BalanceAccountsPanelProps {
 
 function BalanceAccountsPanel({ accounts }: BalanceAccountsPanelProps) {
   return (
-    <section className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-      <div className="border-b border-slate-200 p-4">
+    <section className="overflow-hidden rounded-xl border border-slate-200/80 bg-white/95 shadow-xl shadow-slate-200/70">
+      <div className="border-b border-slate-200 bg-gradient-to-r from-slate-950 to-slate-800 p-4 text-white">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <h2 className="text-base font-bold text-slate-950">
+            <h2 className="text-base font-black text-white">
               Accounts With Balance
             </h2>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-slate-300">
               Brief list of student accounts with remaining collectible balance.
             </p>
           </div>
-          <span className="rounded-full bg-amber-100 px-3 py-1 text-sm font-bold text-amber-800">
+          <span className="rounded-full bg-amber-300 px-3 py-1 text-sm font-black text-slate-950">
             {formatNumber(accounts.length)}
           </span>
         </div>
@@ -700,13 +703,13 @@ function BalanceAccountsPanel({ accounts }: BalanceAccountsPanelProps) {
           <div className="space-y-3">
             {accounts.map((student, index) => (
               <article
-                className="rounded-md border border-slate-200 bg-slate-50 p-3"
+                className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition hover:border-amber-200 hover:bg-amber-50/40"
                 key={student.code}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="grid h-7 w-7 place-items-center rounded-md bg-slate-900 text-xs font-bold text-white">
+                      <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-slate-900 to-slate-700 text-xs font-black text-white shadow-sm">
                         {index + 1}
                       </span>
                       <div>
@@ -763,8 +766,8 @@ function FollowUpGuidancePanel({
   ).length;
 
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-      <h2 className="text-base font-bold text-slate-950">Follow-Up Guidance</h2>
+    <section className="rounded-xl border border-slate-200/80 bg-white/95 p-5 shadow-xl shadow-slate-200/70">
+      <h2 className="text-base font-black text-slate-950">Follow-Up Guidance</h2>
       <p className="mt-1 text-sm text-slate-500">
         Collection focus based on accounts with remaining balances.
       </p>
@@ -809,7 +812,7 @@ interface GuidanceMetricProps {
 
 function GuidanceMetric({ label, value }: GuidanceMetricProps) {
   return (
-    <div className="rounded-md border border-slate-200 bg-slate-50 p-3">
+    <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3 shadow-sm">
       <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
         {label}
       </p>
@@ -833,9 +836,9 @@ function GuidanceCallout({
 }: GuidanceCalloutProps) {
   return (
     <div
-      className={`rounded-md border p-3 ${
+      className={`rounded-xl border p-3 shadow-sm ${
         tone === 'warning'
-          ? 'border-amber-200 bg-amber-50'
+          ? 'border-amber-200 bg-amber-50/80'
           : 'border-slate-200 bg-white'
       }`}
     >
@@ -873,10 +876,11 @@ function CardCategory({ title, children }: CardCategoryProps) {
   return (
     <section>
       <div className="mb-3 flex items-center gap-3">
-        <h3 className="text-sm font-bold uppercase tracking-wide text-slate-600">
+        <span className="h-3 w-3 rounded-full bg-gradient-to-br from-teal-500 to-amber-400 shadow-[0_0_0_5px_rgba(20,184,166,0.10)]" />
+        <h3 className="text-sm font-black uppercase tracking-wide text-slate-700">
           {title}
         </h3>
-        <div className="h-px flex-1 bg-slate-200" />
+        <div className="h-px flex-1 bg-gradient-to-r from-slate-300 to-transparent" />
       </div>
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">{children}</div>
     </section>

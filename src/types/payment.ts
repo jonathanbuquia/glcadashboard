@@ -23,9 +23,7 @@ export type StudentSortKey =
   | 'lowestBalance'
   | 'highestPaid'
   | 'highestOverpayment'
-  | 'studentName'
-  | 'upcomingDueDate'
-  | 'mostOverdue';
+  | 'yearLevel';
 
 export type OverdueSortKey = 'highestAmount' | 'oldestDueDate' | 'mostDaysOverdue';
 

@@ -18,6 +18,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  background: #eef3f8;
 }
 
 button,
@@ -25,4 +26,24 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+.text-safe {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.dashboard-bg {
+  background:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(135deg, #f8fafc 0%, #edf7f6 38%, #eef4ff 68%, #fff7ed 100%);
+  background-size:
+    42px 42px,
+    42px 42px,
+    auto;
+}
+
+::selection {
+  background: rgba(20, 184, 166, 0.24);
 }

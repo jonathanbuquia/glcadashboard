@@ -107,15 +107,6 @@ function getPaymentStatus(
   return totalPaid > EPSILON ? 'Partial' : 'With Balance';
 }
 
-function parseDate(value?: string): number {
-  if (!value) {
-    return Number.POSITIVE_INFINITY;
-  }
-
-  const time = new Date(`${value}T00:00:00`).getTime();
-  return Number.isNaN(time) ? Number.POSITIVE_INFINITY : time;
-}
-
 function matchesParticular(student: StudentFinance, particular: string): boolean {
   if (particular === 'all') {
     return true;
@@ -234,22 +225,24 @@ export function filterStudents(
     const statusMatches =
       filters.status === 'all' || student.paymentStatus === filters.status;
     const particularMatches = matchesParticular(student, filters.particular);
-    const balanceMatches =
-      filters.balanceFilter === 'all' ||
-      (filters.balanceFilter === 'hasBalance' && student.currentBalance > EPSILON) ||
-      (filters.balanceFilter === 'overdue' && student.overdueAmount > EPSILON) ||
-      (filters.balanceFilter === 'fullyPaid' && student.paymentStatus === 'Fully Paid') ||
-      (filters.balanceFilter === 'overpaid' && student.overpayment > EPSILON);
-
     return (
       queryMatches &&
       yearMatches &&
       schemeMatches &&
       statusMatches &&
-      particularMatches &&
-      balanceMatches
+      particularMatches
     );
   });
+}
+
+function getYearLevelRank(yearLevel: string) {
+  if (yearLevel === 'K2') {
+    return 0;
+  }
+
+  const match = /^G(\d+)$/i.exec(yearLevel);
+
+  return match ? Number(match[1]) : 999;
 }
 
 export function sortStudents(
@@ -266,12 +259,11 @@ export function sortStudents(
         return right.totalPaid - left.totalPaid;
       case 'highestOverpayment':
         return right.overpayment - left.overpayment;
-      case 'studentName':
-        return left.name.localeCompare(right.name);
-      case 'upcomingDueDate':
-        return parseDate(left.nextDueDate) - parseDate(right.nextDueDate);
-      case 'mostOverdue':
-        return right.daysOverdue - left.daysOverdue;
+      case 'yearLevel':
+        return (
+          getYearLevelRank(left.yearLevel) - getYearLevelRank(right.yearLevel) ||
+          left.code.localeCompare(right.code, undefined, { numeric: true })
+        );
       case 'highestBalance':
       default:
         return right.currentBalance - left.currentBalance;

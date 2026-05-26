@@ -1,9 +1,4 @@
-import type {
-  BalanceFilter,
-  Filters,
-  ParticularName,
-  StudentSortKey,
-} from '../types/payment';
+import type { Filters, ParticularName, StudentSortKey } from '../types/payment';
 import { formatPaymentScheme } from '../utils/formatters';
 import { PARTICULARS } from '../utils/paymentCalculations';
 
@@ -18,18 +13,12 @@ interface FilterPanelProps {
   onSortChange: (sortKey: StudentSortKey) => void;
 }
 
-const balanceFilters: { value: BalanceFilter; label: string }[] = [
-  { value: 'all', label: 'All balances' },
-  { value: 'hasBalance', label: 'Has balance' },
-  { value: 'fullyPaid', label: 'Fully paid' },
-  { value: 'overpaid', label: 'Overpaid' },
-];
-
 const sortOptions: { value: StudentSortKey; label: string }[] = [
   { value: 'highestBalance', label: 'Highest balance' },
   { value: 'lowestBalance', label: 'Lowest balance' },
   { value: 'highestPaid', label: 'Highest paid amount' },
   { value: 'highestOverpayment', label: 'Highest overpayment' },
+  { value: 'yearLevel', label: 'By year level' },
 ];
 
 export function FilterPanel({
@@ -47,7 +36,7 @@ export function FilterPanel({
   };
 
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+    <section className="rounded-xl border border-slate-200/80 bg-white/95 p-4 shadow-xl shadow-slate-200/70">
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         <Select
           label="Payment Scheme"
@@ -71,7 +60,7 @@ export function FilterPanel({
                 Search
               </span>
               <input
-                className="h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+                className="h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm font-medium text-slate-800 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
                 placeholder="Student name or ID"
                 value={filters.search}
                 onChange={(event) => updateFilter('search', event.target.value)}
@@ -90,7 +79,7 @@ export function FilterPanel({
                 Particular
               </span>
               <select
-                className="h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+                className="h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm font-medium text-slate-800 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
                 value={filters.particular}
                 onChange={(event) =>
                   updateFilter('particular', event.target.value as ParticularName | 'all')
@@ -107,29 +96,10 @@ export function FilterPanel({
 
             <label className="space-y-1">
               <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Balance View
-              </span>
-              <select
-                className="h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
-                value={filters.balanceFilter}
-                onChange={(event) =>
-                  updateFilter('balanceFilter', event.target.value as BalanceFilter)
-                }
-              >
-                {balanceFilters.map((option) => (
-                  <option value={option.value} key={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <label className="space-y-1 md:col-span-2">
-              <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
                 Sort Students
               </span>
               <select
-                className="h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+                className="h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm font-medium text-slate-800 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
                 value={sortKey}
                 onChange={(event) => onSortChange(event.target.value as StudentSortKey)}
               >
@@ -162,7 +132,7 @@ function Select({ label, value, options, getOptionLabel = (option) => option, on
         {label}
       </span>
       <select
-        className="h-10 w-full rounded-md border border-slate-300 px-3 text-sm outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+        className="h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm font-medium text-slate-800 outline-none transition focus:border-teal-600 focus:ring-4 focus:ring-teal-100"
         value={value}
         onChange={(event) => onChange(event.target.value)}
       >

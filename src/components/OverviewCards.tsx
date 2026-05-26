@@ -1,5 +1,4 @@
 import {
-  AlertTriangle,
   Banknote,
   CircleDollarSign,
   Gauge,
@@ -75,14 +74,6 @@ export function OverviewCards({ metrics, variant = 'all' }: OverviewCardsProps) 
       tone="warning"
       icon={ReceiptText}
       key="with-balance"
-    />,
-    <KPICard
-      label="Overdue / Unpaid"
-      value={formatNumber(metrics.studentsWithOverdue)}
-      detail="Accounts needing review"
-      tone="danger"
-      icon={AlertTriangle}
-      key="overdue"
     />,
   ];
   const cards =
