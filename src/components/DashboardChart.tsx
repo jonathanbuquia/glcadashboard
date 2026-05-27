@@ -1,13 +1,19 @@
 import {
+  Bar,
+  BarChart,
+  CartesianGrid,
   Cell,
+  LabelList,
   Pie,
   PieChart,
   ResponsiveContainer,
   Tooltip,
+  XAxis,
+  YAxis,
 } from 'recharts';
 import type { ReactNode } from 'react';
 import type { DistributionDatum } from '../types/payment';
-import { formatCurrency, formatPercent } from '../utils/formatters';
+import { formatCurrency, formatNumber, formatPercent } from '../utils/formatters';
 
 const COLORS = ['#0F766E', '#2563EB', '#D97706', '#7C3AED', '#DC2626', '#475569'];
 const RADIAN = Math.PI / 180;
@@ -167,6 +173,66 @@ export function RevenueBreakdownChart({ data }: RevenueBreakdownChartProps) {
 interface DistributionChartProps {
   title: string;
   data: DistributionDatum[];
+}
+
+export function StudentCountBarChart({ title, data }: DistributionChartProps) {
+  const sortedData = [...data].sort((left, right) => {
+    const countDifference = right.value - left.value;
+
+    return countDifference === 0
+      ? left.name.localeCompare(right.name)
+      : countDifference;
+  });
+
+  return (
+    <ChartShell title={title}>
+      {sortedData.length === 0 ? (
+        <div className="grid h-full place-items-center text-sm text-slate-500">
+          No records match the current filters.
+        </div>
+      ) : (
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            data={sortedData}
+            layout="vertical"
+            margin={{ top: 12, right: 48, bottom: 12, left: 10 }}
+          >
+            <CartesianGrid horizontal={false} stroke="#E2E8F0" />
+            <XAxis
+              type="number"
+              allowDecimals={false}
+              axisLine={false}
+              tickLine={false}
+              tick={{ fill: '#64748B', fontSize: 12, fontWeight: 700 }}
+              tickFormatter={(value) => formatNumber(Number(value))}
+            />
+            <YAxis
+              dataKey="name"
+              type="category"
+              width={52}
+              axisLine={false}
+              tickLine={false}
+              tick={{ fill: '#334155', fontSize: 13, fontWeight: 900 }}
+            />
+            <Tooltip
+              cursor={{ fill: 'rgba(15, 118, 110, 0.08)' }}
+              formatter={(value) => [`${formatNumber(Number(value))} students`, 'Count']}
+            />
+            <Bar dataKey="value" fill="#5F8F3E" radius={[0, 7, 7, 0]} maxBarSize={28}>
+              <LabelList
+                dataKey="value"
+                position="right"
+                formatter={(value) => formatNumber(Number(value ?? 0))}
+                fill="#475569"
+                fontSize={12}
+                fontWeight={800}
+              />
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      )}
+    </ChartShell>
+  );
 }
 
 export function DistributionChart({ title, data }: DistributionChartProps) {

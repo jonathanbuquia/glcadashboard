@@ -20,6 +20,7 @@ import {
   DistributionChart,
   RevenueBreakdownChart,
   RevenueComparisonChart,
+  StudentCountBarChart,
 } from './components/DashboardChart';
 import { FilterPanel } from './components/FilterPanel';
 import { KPICard } from './components/KPICard';
@@ -372,12 +373,12 @@ function OverviewTab({
           collected={metrics.totalCollectedAmount}
         />
         <RevenueBreakdownChart data={revenueBreakdown} />
-        <DistributionChart
-          title="Student Distribution by Year Level"
+        <StudentCountBarChart
+          title="Student Count per Year Level"
           data={yearLevelDistribution}
         />
         <DistributionChart
-          title="Student Distribution by Payment Scheme"
+          title="Student Proportion by Payment Scheme"
           data={schemeDistribution}
         />
       </section>
