@@ -197,6 +197,12 @@ export function StudentCountBarChart({ title, data }: DistributionChartProps) {
             layout="vertical"
             margin={{ top: 12, right: 48, bottom: 12, left: 10 }}
           >
+            <defs>
+              <linearGradient id="studentCountBarGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#0F766E" />
+                <stop offset="100%" stopColor="#38BDF8" />
+              </linearGradient>
+            </defs>
             <CartesianGrid horizontal={false} stroke="#E2E8F0" />
             <XAxis
               type="number"
@@ -218,7 +224,12 @@ export function StudentCountBarChart({ title, data }: DistributionChartProps) {
               cursor={{ fill: 'rgba(15, 118, 110, 0.08)' }}
               formatter={(value) => [`${formatNumber(Number(value))} students`, 'Count']}
             />
-            <Bar dataKey="value" fill="#5F8F3E" radius={[0, 7, 7, 0]} maxBarSize={28}>
+            <Bar
+              dataKey="value"
+              fill="url(#studentCountBarGradient)"
+              radius={[0, 7, 7, 0]}
+              maxBarSize={28}
+            >
               <LabelList
                 dataKey="value"
                 position="right"
